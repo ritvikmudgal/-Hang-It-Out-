@@ -26,8 +26,10 @@ Yash - Backend
 Open-Innovation 
 
 ## Competetor
-`Meetup` 
-
+`Meetup` <br>
+Although being the leader in market,it provides weekly events.Rather than spontaneous hangouts.
+`Parallel` <br>
+Although similar but it gives a more persionalised features and design for gamers.  
 ### Authentication
 - Sign up with email/password or social login (Google/Facebook simulated)
 - After login, you'll see the main app with map, friends, and hangouts
