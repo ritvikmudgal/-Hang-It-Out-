@@ -20,6 +20,9 @@
   font-style: normal;
   color: black;
 }
+.para{
+    margin-left: -40px;
+}
 
 :root {
     /* --bg-gradient-start: #492f61;
@@ -78,9 +81,12 @@ body {
   color: black;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 10px;
-  padding: 16px;
+  padding: 32px;
+  width: 300px;
+  height: 300px;
   box-shadow: var(--shadow-sm);
   transition: transform 0.2s, box-shadow 0.2s;
+  margin-left: 20px
 }
 
 .event-card:hover {
@@ -903,4 +909,12 @@ body.light-mode .map-view {
   height: 100%;
   z-index: -1;
   filter: brightness(0.9);
+}
+.imagee{
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
 }

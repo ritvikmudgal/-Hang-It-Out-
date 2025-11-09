@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Delius&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
 :root {
   --primary: #1976d2;
   --accent: #64b5f6;
@@ -26,7 +27,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
   padding: 0 1.5rem;
   min-height: 64px;
@@ -39,9 +40,17 @@ header {
   align-items: center;
   gap: 0.7rem;
 }
-.logo-icon {
-  display: flex;
-}
+.nav-logo{
+font-size: 1.5rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-hover) 100%);
+    -webkit-background-clip: text;
+    font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+    background-clip: text;
+    color: black;}
 .logo-text {
   font-weight: 700;
   font-size: 1.35rem;
@@ -68,7 +77,7 @@ header {
   letter-spacing: 2px;
   text-decoration: none;
   font-size: 1.1rem;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
+  background-color:rgb(235, 174, 167) ;
   transition: filter 0.18s;
   filter: drop-shadow(0 2px 6px #0008);
 }
@@ -202,9 +211,10 @@ margin-left: 30%;
   margin-left: 40%
 }
 .info-section {
-  background: #212228;
+  background: rgb(235, 174, 167);
   border-radius: 16px;
   margin: 2rem 0;
+  color: black;
   padding: 1.3rem 1.3rem 1.3rem 1rem;
   display: flex;
   gap: 2rem;
@@ -441,11 +451,12 @@ form input:focus {
   display: flex;
   align-items: center;
   gap: 2.1rem;
-  background: #19202b;
+  background: rgb(235, 174, 167);
   border-radius: 16px;
   box-shadow: 0 2px 20px #1565c022;
   padding: 1.4rem 1rem;
   flex-wrap: wrap;
+  color: black;
 }
 .cta-img {
   max-width: 180px;
