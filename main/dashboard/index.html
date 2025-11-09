@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hang It Out - Find Your Tribe</title>
+    <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="map"></div>
+
+    <!-- Main Application -->
+    <div id="mainApp" class="main-app active">
+        <!-- Navigation Bar -->
+        <nav class="navbar">
+            <!-- Profile Button (top-left) -->
+<button id="profileBtn" class="profile-btn" aria-label="Open profile preferences">
+  <!-- Inline SVG Person Icon, black & white -->
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <circle cx="12" cy="8" r="5" fill="#fff" stroke="#222" stroke-width="2"/>
+    <ellipse cx="12" cy="18" rx="7" ry="4" fill="#fff" stroke="#222" stroke-width="2"/>
+  </svg>
+</button>
+
+<!-- Preferences Modal -->
+<div id="profileModal" class="modal">
+  <div class="modal-content">
+    <span id="closeProfile" class="close-btn">&times;</span>
+    <h2 style="font-family:'Dancing Script',cursive;font-weight:600;color:#fff;margin-bottom:20px;">Pick Your Top 3 Preferences</h2>
+    <form id="preferencesForm">
+      <div class="pref-grid">
+        <label><input type="checkbox" name="prefs" value="Music"> Music</label>
+        <label><input type="checkbox" name="prefs" value="Anime"> Anime</label>
+        <label><input type="checkbox" name="prefs" value="Books"> Books</label>
+        <label><input type="checkbox" name="prefs" value="Sports"> Sports</label>
+        <label><input type="checkbox" name="prefs" value="Tech"> Tech</label>
+        <label><input type="checkbox" name="prefs" value="Art"> Art</label>
+      </div>
+      <button type="submit" class="modal-action-btn">Save Preferences</button>
+    </form>
+  </div>
+</div>
+
+            <div class="nav-logo">H-I-O</div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="showSection('home')" class="active">Home</a></li>
+                <li><a href="#" onclick="showSection('about')">About</a></li>
+               
+                <li><a href="#" onclick="showSection('Event')">Events/Spots</a></li>
+                <li><a href="#" onclick="showSection('chat')">Chat</a></li>
+                
+            </ul>
+            >
+        </nav>
+
+        <!-- Home Section -->
+        <section id="homeSection" class="section active">
+            <div class="section-header">
+                <div class="subsec">
+                <h2 class= 'headingg'>Discover Hangout Spots</h2>
+                <p>Find the perfect place to meet new people</p></div>
+                 <br><br><br><br>
+                <h1 class="headd">Hang It Out!</h1>
+                <br><br><br>
+            </div>
+            <div class="hangout-grid" id="hangoutGrid">
+                <!-- Hangout cards will be dynamically loaded -->
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="aboutSection" class="section">
+            <div class="about-container">
+                <h2 class="Hang"><b>About Hang It Out</b></h2>
+                <p class="para">We believe that meaningful connections happen when people come together in the right spaces. Hang It Out helps you discover amazing hangout spots and connect with like-minded individuals in your area.</p>
+                <div class="features">
+                    <div class="feature-card">
+                        <span class="feature-icon"></span>
+                        <h3>Interactive Map</h3>
+                        <p>Explore cafes, parks, and fun spots near you</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon"></span>
+                        <h3>Plan Hangouts</h3>
+                        <p>Organize meetups and find people to join</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="feature-icon"></span>
+                        <h3>Community Chat</h3>
+                        <p>Connect through groups and forums</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Add to your navbar (right side) -->
+<div class="navbar-right">
+  <!-- ...other nav items... -->
+  <button class="profile-btn" id="profileBtn" title="Profile">
+    <!-- User/profile SVG -->
+    <svg viewBox="0 0 24 24" width="32" height="32" fill="none"><circle cx="12" cy="8" r="5" fill="#1976d2"/><ellipse cx="12" cy="19" rx="7" ry="4" fill="#1976d2" opacity="0.3"/></svg>
+  </button>
+</div>
+
+<!-- Preferences Modal -->
+<div id="preference-modal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="close-preferences">&times;</span>
+    <h2>Pick Any Three Preferences</h2>
+    <form class="preferences-form">
+      <div class="pref-grid">
+        <label><input type="checkbox" name="prefs" value="Music"> Music</label>
+        <label><input type="checkbox" name="prefs" value="Anime"> Anime</label>
+        <label><input type="checkbox" name="prefs" value="Books"> Books</label>
+        <label><input type="checkbox" name="prefs" value="Sports"> Sports</label>
+        <label><input type="checkbox" name="prefs" value="Tech"> Tech</label>
+        <label><input type="checkbox" name="prefs" value="Coding"> Coding</label>
+        <label><input type="checkbox" name="prefs" value="Art"> Art</label>
+        <label><input type="checkbox" name="prefs" value="Travel"> Travel</label>
+        <label><input type="checkbox" name="prefs" value="Gaming"> Gaming</label>
+        <label><input type="checkbox" name="prefs" value="Movies"> Movies</label>
+      </div>
+      <button type="submit" class="modal-action-btn">Save Preferences</button>
+    </form>
+  </div>
+</div>
+ <!-- Chat Section -->
+        <section id="chatSection" class="section">
+            <div class="chat-container">
+                <div class="chat-sidebar">
+                    <div class="chat-header">
+                        <h3>Conversations</h3>
+                        <button class="add-chat-btn" onclick="showAddChatModal()">+</button>
+                    </div>
+                    <div class="chat-list" id="chatList">
+
+                        <!-- Chat items will be loaded here -->
+                    </div>
+                </div>
+                <div class="chat-main">
+                    <div class="chat-empty">
+                        <p>Select a conversation to start chatting</p>
+                    </div>
+                    <div class="chat-messages" id="chatMessages" style="display: none;">
+                        <!-- Messages will appear here -->
+                    </div>
+                    <div class="chat-input-container" id="chatInputContainer" style="display: none;">
+                        <input type="text" id="chatInput" placeholder="Type a message...">
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+<!-- event Section -->
+       <section id="events-section" class="events-section">
+  <h2 class="section-title">Nearby Events & Hangout Spots</h2>
+  <div class="events-grid">
+    <!-- Sample Events -->
+    <div class="event-card">
+      <h3>Beach Bonfire Night</h3>
+      <p>Enjoy music, snacks, and fun at the evening bonfire.</p>
+      <div class="event-actions">
+        <button class="btn-action review-btn">Review</button>
+        <button class="btn-action book-btn">Book</button>
+        <button class="btn-action host-btn">Host an Event</button>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <h3>Mountain Hike</h3>
+      <p>Adventure with a local hiking group this weekend.</p>
+      <div class="event-actions">
+        <button class="btn-action review-btn">Review</button>
+        <button class="btn-action book-btn">Book</button>
+        <button class="btn-action host-btn">Host an Event</button>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <h3>Coffee Meetup</h3>
+      <p>Casual hangout at a cozy café nearby.</p>
+      <div class="event-actions">
+        <button class="btn-action review-btn">Review</button>
+        <button class="btn-action book-btn">Book</button>
+        <button class="btn-action host-btn">Host an Event</button>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <h3>Open Mic Night</h3>
+      <p>Showcase your talent or just enjoy others performing!</p>
+      <div class="event-actions">
+        <button class="btn-action review-btn">Review</button>
+        <button class="btn-action book-btn">Book</button>
+        <button class="btn-action host-btn">Host an Event</button>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <h3>Community Football Match</h3>
+      <p>Friendly match at the local field — join or cheer!</p>
+      <div class="event-actions">
+        <button class="btn-action review-btn">Review</button>
+        <button class="btn-action book-btn">Book</button>
+        <button class="btn-action host-btn">Host an Event</button>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <h3>Art Workshop</h3>
+      <p>Explore your creativity with local artists.</p>
+      <div class="event-actions">
+        <button class="btn-action review-btn">Review</button>
+        <button class="btn-action book-btn">Book</button>
+        <button class="btn-action host-btn">Host an Event</button>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <h3>Street Food Tour</h3>
+      <p>Walk and taste the best street food around the city!</p>
+      <div class="event-actions">
+        <button class="btn-action review-btn">Review</button>
+        <button class="btn-action book-btn">Book</button>
+        <button class="btn-action host-btn">Host an Event</button>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <h3>Book Club Meetup</h3>
+      <p>Discuss your favorite reads and find new ones.</p>
+      <div class="event-actions">
+        <button class="btn-action review-btn">Review</button>
+        <button class="btn-action book-btn">Book</button>
+        <button class="btn-action host-btn">Host an Event</button>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <h3>Yoga in the Park</h3>
+      <p>Morning yoga session for all skill levels.</p>
+      <div class="event-actions">
+        <button class="btn-action review-btn">Review</button>
+        <button class="btn-action book-btn">Book</button>
+        <button class="btn-action host-btn">Host an Event</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Booking / Hosting Modal -->
+<div id="modal" class="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-title">Book Event</h2>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <form id="modal-form">
+        <div class="form-group">
+          <label for="modal-date">Date:</label>
+          <input type="date" id="modal-date" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="modal-time">Time:</label>
+          <input type="time" id="modal-time" class="form-control" required>
+        </div>
+        <div id="extra-fields" class="hidden">
+          <div class="form-group">
+            <label for="modal-people">Number of People:</label>
+            <input type="number" id="modal-people" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="modal-title-input">Event Title:</label>
+            <input type="text" id="modal-title-input" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="modal-desc">Description:</label>
+            <textarea id="modal-desc" class="form-control"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+       
+
+       
+    <!-- Place Details Modal -->
+    <div id="placeModal" class="modal">
+        <div class="modal-content place-details">
+            <span class="close-modal" onclick="closePlaceModal()">&times;</span>
+            <div id="placeDetailsContent">
+                <!-- Place details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Plan Hangout Modal -->
+    <div id="planHangoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePlanModal()">&times;</span>
+            <h2>Plan a Hangout</h2>
+            <form onsubmit="createHangout(event)" id="hangoutForm">
+                <input type="text" id="hangoutTitle" placeholder="Hangout Title" required>
+                <input type="number" id="hangoutPeople" placeholder="Number of People" min="2" required>
+                <input type="datetime-local" id="hangoutTime" required>
+                <textarea id="hangoutDescription" placeholder="Description" rows="3" required></textarea>
+                <button type="submit" class="submit-btn">Create Hangout</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Chat Modal -->
+    <div id="addChatModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeAddChatModal()">&times;</span>
+            <h2>Start New Conversation</h2>
+            <div class="add-chat-options">
+                <button onclick="addUserChat()" class="option-btn">👤 Add User</button>
+                <button onclick="joinForum()" class="option-btn">🌐 Join Forum</button>
+                <button onclick="joinCommunity()" class="option-btn">👥 Join Community</button>
+            </div>
+        </div>
+    </div>
+    <!-- Add this BEFORE <script src="script.js"></script> -->
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+<script src="script.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,1 +1,1 @@
-# -Hang-It-Out-
+# HangOutt
