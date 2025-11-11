@@ -918,3 +918,220 @@ body.light-mode .map-view {
     height: 100px;
     border-radius: 10px;
 }
+/* ============================================= */
+/* RESPONSIVE DESIGN - UNIVERSAL ENHANCEMENT */
+/* ============================================= */
+
+/* Tablets and medium screens */
+@media (max-width: 1024px) {
+  .headd {
+    font-size: 70px;
+    text-align: center;
+  }
+
+  .headingg {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .para {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+  }
+
+  .theme-toggle {
+    margin-right: 0;
+  }
+
+  .events-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    justify-items: center;
+  }
+
+  .event-card {
+    width: 100%;
+    max-width: 320px;
+    margin-left: 0;
+  }
+
+  .chat-container {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .chat-sidebar {
+    order: 2;
+  }
+
+  .chat-main {
+    order: 1;
+  }
+
+  .map-container {
+    height: 60vh;
+  }
+
+  .map-view {
+    border-radius: 10px;
+  }
+
+  .features {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 1rem auto;
+  }
+}
+
+/* Phones and small screens */
+@media (max-width: 768px) {
+  .headd {
+    font-size: 48px;
+  }
+
+  .headingg {
+    font-size: 1.3rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .nav-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .events-section {
+    padding: 1rem;
+  }
+
+  .event-card {
+    height: auto;
+    padding: 1rem;
+  }
+
+  .pref-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-container {
+    height: 50vh;
+  }
+
+  .map-marker .marker-label {
+    font-size: 0.7rem;
+  }
+
+  .chat-container {
+    grid-template-columns: 1fr;
+  }
+
+  .chat-sidebar {
+    border-radius: 10px;
+  }
+
+  .chat-main {
+    border-radius: 10px;
+  }
+
+  .chat-input-container {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .about-container h2 {
+    font-size: 2rem;
+  }
+
+  .about-container > p {
+    font-size: 1rem;
+  }
+
+  .feature-card {
+    padding: 1.2rem;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 1.2rem;
+  }
+
+  .modal-action-btn,
+  .modal-btn {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 480px) {
+  .headd {
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .headingg {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .imagee {
+    width: 70px;
+    height: 70px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  .event-card {
+    padding: 0.8rem;
+    width: 100%;
+  }
+
+  .chat-input-container input {
+    font-size: 0.9rem;
+  }
+
+  .chat-input-container button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .map-container {
+    height: 40vh;
+  }
+
+  .feature-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .feature-icon {
+    font-size: 3rem;
+  }
+
+  .modal-content {
+    padding: 0.8rem;
+    border-radius: 12px;
+  }
+}
